@@ -1,0 +1,16 @@
+basic structure of a clean architecture project:
+3 layers:
+    - Data:
+        - Model (www, things that come from the outside)
+        - Repositories (bridge to Repositories in Business layer)
+        - Datasource (db)
+
+    - Business:
+        - Entities (things that are on the phone in contrast to Model in Data layer)
+        - Repositories 
+        - Usecases (gets triggered by action on widgets e.g. clicking on a button; 'get the data of something')
+
+    - Presentation:
+        - Pages (use all the widgets eg. Button)
+        - Providers (gets data from Datasource and refreshes the widgets)
+        - Widget
