@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:clean_architec/core/errors/exceptions.dart';
+import 'package:clean_architec/features/pokemon/data/models/pokemon_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 abstract class PokemonLocalDataSource {
@@ -16,7 +18,7 @@ class PokemonLocalDataSourceImpl implements PokemonLocalDataSource {
   PokemonLocalDataSourceImpl({required this.sharedPreferences});
 
   @override
-  Future<dynamic> getLastPokemon() {
+  Future<PokemonModel> getLastPokemon() {
     final jsonString = sharedPreferences.getString(cachedPokemon);
 
     if (jsonString != null) {
@@ -27,7 +29,7 @@ class PokemonLocalDataSourceImpl implements PokemonLocalDataSource {
   }
 
   @override
-  Future<void>? cachePokemon(PokemonModel pokemonToCache) async{
+  Future<void>? cachePokemon(PokemonModel? pokemonToCache) async{
     if (pokemonToCache != null) {
       sharedPreferences.setString(
         cachedPokemon,

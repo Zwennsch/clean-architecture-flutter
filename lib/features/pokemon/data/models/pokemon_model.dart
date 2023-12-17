@@ -1,4 +1,6 @@
+import 'package:clean_architec/core/constants/constants.dart';
 import 'package:clean_architec/features/pokemon/business/entities/pokemon_entity.dart';
+import 'package:clean_architec/features/pokemon/data/models/sub_models.dart';
 
 class PokemonModel extends PokemonEntity {
   PokemonModel(

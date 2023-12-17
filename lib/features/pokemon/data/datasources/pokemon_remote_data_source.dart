@@ -1,4 +1,6 @@
+import 'package:clean_architec/core/errors/exceptions.dart';
 import 'package:clean_architec/core/params/params.dart';
+import 'package:clean_architec/features/pokemon/data/models/pokemon_model.dart';
 import 'package:dio/dio.dart';
 
 abstract class PokemonRemoteDataSource {

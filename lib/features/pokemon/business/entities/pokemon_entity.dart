@@ -5,7 +5,7 @@ class PokemonEntity {
   final String name;
   final int id;
   final SpritesEntity sprites;
-  final List<TypeEntity> types;
+  final List<TypesEntity> types;
   const PokemonEntity({
     required this.name,
     required this.id,

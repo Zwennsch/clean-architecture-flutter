@@ -1,5 +1,6 @@
 // !Sprites
 
+import 'package:clean_architec/core/constants/constants.dart';
 import 'package:clean_architec/features/pokemon/business/entities/sub_entities.dart';
 
 class SpritesModel extends SpritesEntity {
