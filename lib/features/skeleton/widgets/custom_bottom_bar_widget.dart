@@ -1,5 +1,5 @@
 import 'package:clean_architec/features/skeleton/providers/selected_page_provider.dart';
-import 'package:clean_architec/features/skeleton/widgets/custom_botton_bar_icon_widget.dart';
+import 'package:clean_architec/features/skeleton/widgets/custom_bottom_bar_icon_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

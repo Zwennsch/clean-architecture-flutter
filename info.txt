@@ -14,3 +14,7 @@ basic structure of a clean architecture project:
         - Pages (use all the widgets eg. Button)
         - Providers (gets data from Datasource and refreshes the widgets)
         - Widget
+
+the template folder is what you copy-paste every time you implement a new feature
+    - you can take the 'pokemon' as a feature. You can see that the pokemon folder has the same structure as the template folder
+    - the goal is to use clean architecture as fast and clean as possible
