@@ -47,9 +47,9 @@ class CustomBottomBarWidget extends StatelessWidget {
                       Provider.of<SelectedPageProvider>(context, listen: false)
                           .changePage(1);
                     },
-                    iconDataSelected: Icons.search_outlined,
-                    isSelected: selectedPage == 0,
-                    iconDataUnselected: Icons.search_outlined),
+                    iconDataSelected: Icons.menu,
+                    isSelected: selectedPage == 1,
+                    iconDataUnselected: Icons.menu),
               ],
             )
           ],

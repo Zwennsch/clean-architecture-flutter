@@ -15,6 +15,15 @@ basic structure of a clean architecture project:
         - Providers (gets data from Datasource and refreshes the widgets)
         - Widget
 
+
+Workflow:
+    - When a user clicks on a button using the pages and widgets in the Presentation layer, this will trigger a usescase from the Business layer
+    - The usescase will use the Repositories inside the Business layer with the entities and will create a bridge to the data layer
+    - the Repository inside the data layer will use the Datasource with the Model (databases or local database)
+    - the Datasources will get all the data and put it inside the provider 
+    - this updates your pages and screens inside the Presentation layer....
+    - now the user can interact with an updated page and the Workflow starts from the beginning again
+
 the template folder is what you copy-paste every time you implement a new feature
     - you can take the 'pokemon' as a feature. You can see that the pokemon folder has the same structure as the template folder
     - the goal is to use clean architecture as fast and clean as possible
