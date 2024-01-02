@@ -2,7 +2,6 @@ class NoParams {}
 
 class TemplateParams {}
 
-
 // The things the gets passed to the API
 class PokemonParams {
   final String id;
@@ -11,4 +10,8 @@ class PokemonParams {
   });
 }
 
-class PokemonImageParams{}
+class PokemonImageParams {
+  final String name;
+  final String imageUrl;
+  PokemonImageParams({required this.name, required this.imageUrl});
+}

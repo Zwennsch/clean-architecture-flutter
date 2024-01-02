@@ -2,12 +2,13 @@ import 'package:clean_architec/core/connection/network_info.dart';
 import 'package:clean_architec/core/errors/exceptions.dart';
 import 'package:clean_architec/core/errors/failure.dart';
 import 'package:clean_architec/core/params/params.dart';
-import 'package:clean_architec/features/template/business/entities/template_entity.dart';
-import 'package:clean_architec/features/template/business/repositories/template_repository.dart';
-import 'package:clean_architec/features/template/data/datasources/template_local_data_source.dart';
-import 'package:clean_architec/features/template/data/datasources/template_remote_data_source.dart';
-import 'package:clean_architec/features/template/data/models/template_model.dart';
 import 'package:dartz/dartz.dart';
+
+import '../../business/entities/pokemon_image_entity.dart';
+import '../../business/repositories/pokemon_image_repository.dart';
+import '../datasources/pokemon_image_local_data_source.dart';
+import '../datasources/pokemon_image_remote_data_source.dart';
+import '../models/pokemon_image_model.dart';
 
 class PokemonImageRepositoryImpl implements PokemonImageRepository {
   final PokemonImageRemoteDataSource remoteDataSource;
@@ -21,13 +22,13 @@ class PokemonImageRepositoryImpl implements PokemonImageRepository {
 
   @override
   Future<Either<Failure, PokemonImageEntity>> getPokemonImage(
-      {required PokemonImageParams templateParams}) async {
+      {required PokemonImageParams pokemonImageParams}) async {
     if (await networkInfo.isConnected!) {
       try {
         PokemonImageModel remotePokemonImage =
-            await remoteDataSource.getPokemonImage(templateParams: templateParams);
+            await remoteDataSource.getPokemonImage(pokemonImageParams: pokemonImageParams);
 
-        localDataSource.cachePokemonImage(templateToCache: remotePokemonImage);
+        localDataSource.cachePokemonImage(pokemonImageToCache: remotePokemonImage);
 
         return Right(remotePokemonImage);
       } on ServerException {

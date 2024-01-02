@@ -9,6 +9,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../pokemon_image/presentation/providers/pokemon_image_provider.dart';
 import 'CustomElevatedButtonWidget.dart';
 
 class SearchPokemonWidget extends StatelessWidget {
@@ -102,9 +103,12 @@ class SearchPokemonWidget extends StatelessWidget {
             textColor: Colors.white,
             iconColor: Colors.white,
             callback: () async {
+              PokemonImageProvider pokemonImageProvider =
+                  Provider.of<PokemonImageProvider>(context, listen: false);
               Provider.of<PokemonProvider>(context, listen: false)
                   .eitherFailureOrPokemon(
                 value: (selectedPokemonItem.number + 1).toString(),
+                pokemonImageProvider: pokemonImageProvider,
               );
               if (await NetworkInfoImpl(DataConnectionChecker()).isConnected ==
                   false) {

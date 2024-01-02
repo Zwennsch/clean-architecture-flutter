@@ -6,6 +6,7 @@ import 'package:clean_architec/features/pokemon/business/usecases/get_pokemon.da
 import 'package:clean_architec/features/pokemon/data/datasources/pokemon_local_data_source.dart';
 import 'package:clean_architec/features/pokemon/data/datasources/pokemon_remote_data_source.dart';
 import 'package:clean_architec/features/pokemon/data/repositories/pokemon_repository_impl.dart';
+import 'package:clean_architec/features/pokemon_image/presentation/providers/pokemon_image_provider.dart';
 import 'package:data_connection_checker_tv/data_connection_checker.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/widgets.dart';
@@ -17,9 +18,9 @@ class PokemonProvider extends ChangeNotifier {
 
   PokemonProvider({this.pokemon, this.failure});
 
-  void eitherFailureOrPokemon({
-    required String value,
-  }) async {
+  void eitherFailureOrPokemon(
+      {required String value,
+      required PokemonImageProvider pokemonImageProvider}) async {
     PokemonRepositoryImpl repository = PokemonRepositoryImpl(
       remoteDataSource: PokemonRemoteDataSourceImpl(dio: Dio()),
       localDataSource: PokemonLocalDataSourceImpl(
@@ -39,6 +40,7 @@ class PokemonProvider extends ChangeNotifier {
       (newPokemon) {
         pokemon = newPokemon;
         failure = null;
+        pokemonImageProvider.eitherPokemonImageOrFailure(pokemonEntity: pokemon!);
         notifyListeners();
       },
     );

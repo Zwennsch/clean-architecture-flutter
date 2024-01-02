@@ -1,7 +1,7 @@
 import 'package:clean_architec/core/errors/failure.dart';
 import 'package:clean_architec/features/pokemon/business/entities/pokemon_entity.dart';
 import 'package:clean_architec/features/pokemon/presentation/providers/pokemon_provider.dart';
-import 'package:clean_architec/features/pokemon/presentation/widgets/pokemon_image_widget.dart';
+import 'package:clean_architec/features/pokemon_image/presentation/widgets/pokemon_image_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

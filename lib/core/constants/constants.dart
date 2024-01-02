@@ -12,3 +12,6 @@ String kFrontShiny = 'front_shiny';
 String kPath = 'path';
 
 int maxPokemonId = 1008;
+
+// sets the value for getting a shiny image type or not
+bool isShiny = true;
